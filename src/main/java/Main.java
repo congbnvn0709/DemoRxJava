@@ -1,3 +1,7 @@
+import UtilityOperator.demoDelay;
+import UtilityOperator.demoDo;
+import combining.demoMerge;
+import combining.demoZip;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.Scheduler;
@@ -15,26 +19,19 @@ import io.reactivex.functions.Consumer;
 
 import static java.lang.Thread.sleep;
 
+
 @SuppressWarnings("unchecked")
 public class Main {
     public static void main(String[] args) {
-        //cách 1:
-//        Thread thread = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                runIt();
-//            }
-//        });
-//        Thread thread = new Thread(Main::runIt);
-//        thread.run();
         createObservableWithJust withJust = new createObservableWithJust();
         withJust.createWithJust();
         System.out.println("--------------------------------------------");
         createObservableWithFrom from = new createObservableWithFrom();
         from.createWithFrom();
-        System.out.println("-------------------------------------------");
+        System.out.println("--------------------createObserver-----------------------");
         createObserver observer = new createObserver();
         observer.createObser();
+        observer.stundent();
         System.out.println("----------------------coldObservable----------------");
         createColdObservable coldObservable = new createColdObservable();
         coldObservable.createColdObser();
@@ -42,8 +39,26 @@ public class Main {
         System.out.println("----------------------hotObservable----------------");
         createHotObservable hotObservable = new createHotObservable();
         hotObservable.createHotObser();
+        System.out.println("-------------------demoMerg--------------");
+        demoMerge demo = new demoMerge();
+        demo.merge();
+        System.out.println("deozip");
+        demoZip demoZip = new demoZip();
+        demoZip.zip();
+        System.out.println("-------------------demoDelay--------------------");
+        demoDelay delay = new demoDelay();
+        delay.delayAbout();
+        System.out.println("--------------------demoDo----------------------");
+        demoDo demoDo = new demoDo();
+        demoDo.demoDoOnNext();
+        demoDo.demoDos();
+        System.out.println("-----------------demoTakeWhile----------------");
+        demoTakeWhile takeWhile = new demoTakeWhile();
+        takeWhile.demo();
+//        demo.mergDelay();
+//        demoOperatorMap map = new demoOperatorMap();
+//        map.getColorList();
 //        createObservableUsingCreate();
-//        createColdObserble();
 //        createHotAndConnectableObservable();
 //        createObservableError();
 //        createErrorUsingCallable();
